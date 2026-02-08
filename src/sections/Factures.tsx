@@ -476,6 +476,10 @@ export function Factures({ factures, stats, onAdd, onDelete }: FacturesProps) {
                   variant="outline"
                   className="flex-1"
                   onClick={() => {
+                    if (!selectedFacture.imageData) {
+                      return;
+                    }
+
                     const link = document.createElement('a');
                     link.href = selectedFacture.imageData;
                     link.download = `facture-${selectedFacture.numero}.jpg`;
